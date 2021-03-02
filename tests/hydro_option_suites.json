@@ -1,8 +1,0 @@
-{
-  "compound_channel_off":{
-    "hydro_nlist": {
-      "compound_channel": false
-    },
-    "nudging_nlist":{}
-  }
-}
