@@ -56,8 +56,8 @@
   LIBS		=
   LIBJASPER	=	-ljpeg -L/scholar/kmanning/jasper/lib -ljasper
   INCJASPER	=	-I/scholar/kmanning/jasper/include
-  NETCDFMOD	=	-I /d1/weiyu/gfortran/netcdf-3.6.3/include
-  NETCDFLIB	=	-L /d1/weiyu/gfortran/netcdf-3.6.3/lib -lnetcdf
+  NETCDFMOD	=	-I/d1/weiyu/gfortran/netcdf-3.6.3/include
+  NETCDFLIB	=	-L/d1/weiyu/gfortran/netcdf-3.6.3/lib -lnetcdf
   BZIP2		=	YES
   BZIP2_LIB	=	-lbz2
   BZIP2_INCLUDE	=	-I/usr/include

@@ -12,7 +12,7 @@ FFLAGS=-c -free -O3
 
 FLFLAGS=
 
-MODFLAG := $(MODFLAG) -I ../../mod
+MODFLAG := $(MODFLAG) -I../../mod
 
 .PHONY: all mod test
 

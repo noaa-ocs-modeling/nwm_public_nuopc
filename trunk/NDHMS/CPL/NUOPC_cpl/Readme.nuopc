@@ -1,4 +1,5 @@
 Beheen - 1/10/2020
+Panagiotis Velissariou - 12/05/2020
 
 This directory contains 
 1) WRFHYDRO nuopc cap with dependencies (i.e. Makefile.wrfhydro, Readme.WRFHYDRO, ...)
@@ -8,7 +9,7 @@ This directory contains
 Note: below files are like templates used for compilation of NWM in nuopc mode 
 with NEMS. Please do not remove:
     1) Makefile.IO_code.nuopc  2) Makefile.NoahMP.nuopc  3) Makefile.nuopc
-    4) esmf-impi-env.sh  5) setEnvar.sh
+    4) setEnvar.sh
 
 NWM NUOPC files 
 ==============

@@ -7,7 +7,7 @@
 
 include ../../macros
 
-MODFLAG =       -I./ -I ../../MPP -I ../../mod 
+MODFLAG =       -I./ -I../../MPP -I../../mod 
 
 WRF_ROOT = ../../..
 OBJS = \

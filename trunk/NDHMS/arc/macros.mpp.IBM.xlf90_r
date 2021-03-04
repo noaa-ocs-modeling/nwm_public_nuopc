@@ -28,7 +28,7 @@ RMD		=	rm -f
 COMPILER90=	mpxlf90_r
 F90FLAGS  =     -O2 -qfree=f90 -c -w -qspill=20000 -qmaxmem=64000
 LDFLAGS  =     -O2 -qfree=f90  -w -qspill=20000 -qmaxmem=64000
-MODFLAG	=	-I./ -I ../MPP -I../../MPP -I ../mod
+MODFLAG	=	-I./ -I../MPP -I../../MPP -I../mod
 LDFLAGS	=	
 CPPINVOKE	=   -qpreprocess
 LIBS 	=	

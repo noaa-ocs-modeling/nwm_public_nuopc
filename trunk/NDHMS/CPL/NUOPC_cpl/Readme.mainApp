@@ -1,3 +1,5 @@
+Modified: Panagiotis Velissariou - 12/05/2020
+
 ======================== Beheen - 6/26/2020
 This is to do an independent nuopc testing between NWM and ADCIRC
 with a simple main and nuopc driver, independent of NEMS. To do
@@ -12,21 +14,19 @@ located at this directory: /scratch2/COASTAL/coastal/save/NAMED_STORMS/z_code_sh
 2) softlink to ADCIRC located at ADC-WW3-NWM-NEMS into NEMS_TEST
 3) softlink to NWM located at ADC-WW3-NWM-NEMS into NEMS_TEST
 4) fixed the makefile.hwrf.nuopc in NEMS_TEST/ADCIRC/cpl/nuopc to make it like other makefile.xxx.nuopc
-5) cd ADCIRC/cpl/nuopc
-   loaded m for modules (m is an alias in my .bashrc file)
-   source esmf-impi-env.sh
+5) cd ADCIRC/cpl/nuopc - not anymore
 6) make -f makefile.atmesh.nuopc nuopc
 7) make -f makefile.ww3data.nuopc nuopc
 8) make -f makefile.hwrf.nuopc nuopc
 9) cd NEMS_TEST/ADCIRC/work
-10) ./make_nuopc.sh esmf-impi-env.sh intel
+10) ./make_nuopc.sh intel
    see produced results: 
    work/libadc.a, work/adcprep, util/tidefac, 
-   cpl/nuopc/libadc_cap.a cpl/nuopc/libatmesh_cap.a 
-   cpl/nuopc/libww3data_cap.a cpl/nuopc/libatm_cap.a
+   thirdparty/nuopc/libadc_cap.a thirdparty/nuopc/libatmesh_cap.a 
+   thirdparty/nuopc/libww3data_cap.a thirdparty/nuopc/libatm_cap.a
 11)goto NWM directory ADC-WW3-NWM-NEMS/NWM/trunk/NDHMS
 12)make clean & make clean nuopc
-13)./compile_nuopc_NoahMP.sh setEnvar.sh esmf-impi-env.sh 3
+13)./compile_nuopc_NoahMP.sh setEnvar.sh 3
    see produced results:
    nwm_esmf_extensions.mod
    NWM_ESMF_Extensions.o
@@ -64,31 +64,17 @@ Description: To test NWM in NUOPC coupled mode, we need a main and a nuopc drive
   - mainApp.F90 - Main application cap.
 
 The above source codes are to be compiled and then to be tested with NWM input files (parameters & forcing)
- 	
-Dependencies: 
-  - ESMF v8.0.0 beta
-  - module load intel/18.0.5.274
-  - module load impi/2018.0.4
-  - module load szip/2.1
-  - module load hdf5/1.10.4
-  - module load netcdf/4.6.1
-  - module use /home/emc.nemspara/SOFT-hera/modulefiles
-  - module load esmf/8.0.0bs48g
-  See file esmf-impi-env.sh
 
-  
 Build: To compile follow below instructions:
   - Go to trunk/NDHMS
   - Set environment variable MAINAPP:
     > export MAINAPP=ON
-  - ./compile_nuopc_NoahMP.sh setEnvar.sh esmf-impi-env.sh 3
+  - ./compile_nuopc_NoahMP.sh setEnvar.sh 3
   OR
   - Set environment variable MAINAPP:
     > MAINAPP=ON
   - Set NWM required environment variable:
     source setEnvar.sh 		==> located in trunk/NDHMS
-  - Set environment variable ESMFMKFILE:
-    source esmf-impi-env.sh 	==> located in trunk/NDHMS
   - Configure compiler option:
     ./configure
     3            		==> enter option number 3

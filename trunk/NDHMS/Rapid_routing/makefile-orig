@@ -24,10 +24,7 @@
 FPPFLAGS=-D NO_TAO
 include ${PETSC_DIR}/conf/variables
 include ${PETSC_DIR}/conf/rules
-#include ${PETSC_DIR}/lib/petsc/conf/variables
-#include ${PETSC_DIR}/lib/petsc/conf/rules
-#PETSC_FC_INCLUDES=-I/work/02151/peirongl/_code_wrfhydro/wrf_hydro_model/trunk/NDHMS/petsc-3.6.2/include/
-#PETSC_LIB=-L/work/02151/peirongl/_code_wrfhydro/wrf_hydro_model/trunk/NDHMS/petsc-3.6.2/lib/
+
 
 #*******************************************************************************
 #Location of netCDF include and lib directories
@@ -81,9 +78,7 @@ rapid:	rapid_main.o \
 	rapid_phiroutine.o \
 	rapid_destro_obj.o \
 	rapid_final.o \
-	rapid_var.o \
-	hrldas_RAPID_wrapper.o \
-	hrldas_RAPID_drv.o
+	rapid_var.o
 	${FLINKER} ${FPPFLAGS} -o \
 	rapid \
 	rapid_main.o \
@@ -119,18 +114,17 @@ rapid:	rapid_main.o \
 	rapid_destro_obj.o \
 	rapid_final.o \
 	rapid_var.o \
-	hrldas_RAPID_wrapper.o \
-	hrldas_RAPID_drv.o \
 	${TAO_FORTRAN_LIB} ${TAO_LIB} ${PETSC_LIB} ${NETCDF_LIB}
 	${RM} *.o *.mod 
-#	ln -sf ../src/rapid ../run/rapid
-#	ln -sf ../src/rapid ../rtk/rapid
-#----LPR: uncomment the link because no RAPID executable will be generated when
-#---------coupled with WRF-Hydro
+	ln -sf ../src/rapid ../run/rapid
+	ln -sf ../src/rapid ../rtk/rapid
 
 #-------------------------------------------------------------------------------
 #Compile RAPID
 #-------------------------------------------------------------------------------
+rapid_main.o: 	rapid_main.F90 rapid_var.mod 
+	${FLINKER} ${FPPFLAGS} -c rapid_main.F90 ${PETSC_FC_INCLUDES} ${TAO_INCLUDE} 
+
 rapid_final.o:		rapid_final.F90 rapid_var.mod
 	${FLINKER} ${FPPFLAGS} -c rapid_final.F90 ${PETSC_FC_INCLUDES}
 
@@ -226,16 +220,6 @@ rapid_read_namelist.o:	rapid_read_namelist.F90 rapid_var.mod
 	
 rapid_var.o rapid_var.mod:	rapid_var.F90
 	${FLINKER} ${FPPFLAGS} -c rapid_var.F90 ${PETSC_FC_INCLUDES} ${TAO_INCLUDE} 
-
-hrldas_RAPID_wrapper.mod hrldas_RAPID_wrapper.o:     hrldas_RAPID_wrapper.F90 rapid_var.mod
-	${FLINKER} ${FPPFLAGS} -c hrldas_RAPID_wrapper.F90  ${PETSC_FC_INCLUDES} ${TAO_INCLUDE}
-
-rapid_main.o:   rapid_main.F90 rapid_var.mod hrldas_RAPID_wrapper.mod
-	${FLINKER} ${FPPFLAGS} -c rapid_main.F90 ${PETSC_FC_INCLUDES} \
-						${TAO_INCLUDE} ${NETCDF_INCLUDE}
-
-hrldas_RAPID_drv.o:     hrldas_RAPID_drv.F90 hrldas_RAPID_wrapper.mod
-	${FLINKER} ${FPPFLAGS} -c hrldas_RAPID_drv.F90  ${PETSC_FC_INCLUDE} ${TAO_INCLUDE}
 	
 #-------------------------------------------------------------------------------
 #Clean

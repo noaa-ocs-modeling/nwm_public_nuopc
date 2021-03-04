@@ -1,7 +1,7 @@
 
 include ../../macros
 
-MODFLAG := $(MODFLAG) -I ../../mod
+MODFLAG := $(MODFLAG) -I../../mod
 
 %.o : %.F
 	$(COMPILER90) $(F90FLAGS) $(LDFLAGS) $(MODFLAG) -I$(NETCDFINC) $<

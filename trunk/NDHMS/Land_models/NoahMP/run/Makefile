@@ -8,7 +8,7 @@ endif
 include ../user_build_options
 
 ifeq ($(WRF_HYDRO_RAPID),1)
-PHDF5_INC=-I ${TACC_HDF5_INC}
+PHDF5_INC=-I${TACC_HDF5_INC}
 RAPID_MACRO = ${TAO_FORTRAN_LIB} ${TAO_LIB} ${PETSC_LIB} ${PHDF5_INC} \
         -Wl,-rpath,${TACC_HDF5_LIB} -L${TACC_HDF5_LIB} -lhdf5 -lz 
 RAPID_LIB =  -lrapid

@@ -1,6 +1,8 @@
+# Modified: Panagiotis Velissariou - 12/05/2020
+
 cmake_minimum_required (VERSION 2.8)
 
-# rm -rf *; cmake -DNUOPCMODE=1 -Wno-dev ..    must source setEnvar.sh and source esmf-impi-env.sh
+# rm -rf *; cmake -DNUOPCMODE=1 -Wno-dev ..    must source setEnvar.sh
 
 add_library(hydro_noahmp_nuopc_cpl STATIC
 	NWM_ESMF_Extensions.F90  

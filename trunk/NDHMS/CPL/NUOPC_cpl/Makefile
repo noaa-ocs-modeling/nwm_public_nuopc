@@ -163,8 +163,8 @@ NWM_NUOPC_Gluecode.o: NWM_NUOPC_Macros.h \
 	@echo "Compiling $@..."
 	@echo
 	$(ESMF_F90COMPILER) -c $(ESMF_F90COMPILEOPTS) $(ESMF_F90COMPILEPATHS) $(ESMF_F90COMPILEFREECPP) $(ESMF_F90COMPILECPPFLAGS) -DESMF_VERSION_MAJOR=$(ESMF_VERSION_MAJOR) $< \
-	-DESMF_VERSION_MAJOR=$(ESMF_VERSION_MAJOR) -I ../../Land_models/NoahMP/Utility_routines -I ../../Land_models/NoahMP/IO_code \
-	-I ../../Land_models/NoahMP/phys -I ../../MPP -I ../../mod -I ../../OrchestratorLayer -I ../../Land_models/NoahMP/data_structures/
+	-DESMF_VERSION_MAJOR=$(ESMF_VERSION_MAJOR) -I../../Land_models/NoahMP/Utility_routines -I../../Land_models/NoahMP/IO_code \
+	-I../../Land_models/NoahMP/phys -I../../MPP -I../../mod -I../../OrchestratorLayer -I../../Land_models/NoahMP/data_structures/
         
 
 # #####################

@@ -1,3 +1,5 @@
+# Modified: Panagiotis Velissariou - 12/05/2020
+
 cmake_minimum_required (VERSION 2.8)
 
 set (CMAKE_C_COMPILER "mpicc")
@@ -52,7 +54,8 @@ if ("${HYDRO_LSM}" STREQUAL "")
 endif ("${HYDRO_LSM}" STREQUAL "")
 
 # Beheen 12/17/19
-# source setEnvar.sh and source esmf-impi-env.sh
+# Panagiotis Velissariou 12/05/2020
+# source setEnvar.sh
 # To run: cd cmakeBuild  rm -rf *; cmake -DNUOPCMODE=1 -DBUILD_PREC=r4 -DDBUG=on -Wno-dev ..  
 #                                  make VERBOSE=1
 # set user controled environment variable, NUOPC mode
